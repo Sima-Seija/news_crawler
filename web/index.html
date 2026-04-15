@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新聞資料管理系統</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>新聞資料管理系統</h1>
+      <p>檢視、編輯、刪除新聞，並控制 Python 抓取程式開啟 / 關閉。</p>
+    </header>
+
+    <section class="panel controls">
+      <div class="status-block">
+        <div><strong>抓取程式狀態：</strong><span id="crawlerStatus">載入中...</span></div>
+        <div><strong>資料筆數：</strong><span id="articleCount">0</span></div>
+        <div><strong>最後更新：</strong><span id="lastUpdated">-</span></div>
+      </div>
+      <div class="button-group">
+        <button id="startBtn">啟動抓取</button>
+        <button id="stopBtn">停止抓取</button>
+        <button id="refreshBtn">重新整理</button>
+      </div>
+    </section>
+
+    <section class="panel sources">
+      <h2>來源筆數統計</h2>
+      <div id="sourceCounts">載入中...</div>
+    </section>
+
+    <section class="panel table-panel">
+      <h2>新聞清單</h2>
+      <div class="table-actions">
+        <button id="reloadArticles">重新載入新聞</button>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>來源</th>
+              <th>標題</th>
+              <th>時間</th>
+              <th>URL</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="articleTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel editor">
+      <h2>編輯新聞</h2>
+      <form id="editorForm">
+        <input type="hidden" id="editIndex" />
+        <label>來源 <input type="text" id="editSource" /></label>
+        <label>標題 <input type="text" id="editTitle" /></label>
+        <label>時間 <input type="text" id="editPublishedAt" /></label>
+        <label>URL <input type="text" id="editUrl" /></label>
+        <label>內文 <textarea id="editContent" rows="8"></textarea></label>
+        <div class="button-group">
+          <button type="submit">儲存變更</button>
+          <button type="button" id="clearEditor">清除</button>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      <p>使用說明：點選「編輯」在下方修改新聞，或「刪除」移除不需要資料。</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

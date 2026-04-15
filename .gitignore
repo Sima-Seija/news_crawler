@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# IDEs
+.vscode/
+.idea/
+
+# Data files and runtime state
+politics_news.json
+.crawl_state.json
+test_output.json
+test_state.json
+
+# OS files
+.DS_Store
+Thumbs.db
